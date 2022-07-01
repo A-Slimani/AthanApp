@@ -69,19 +69,18 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 4,
-    backgroundColor: 'yellow',
+    alignItems: 'center'
   },
   leftText: {
     padding: 10,
-    backgroundColor: 'white'
   },
   rightText: {
     padding: 10,
-    alignItems: 'stretch',
-    backgroundColor: 'orange'
   },
   mainRow: {
     flexDirection: 'row',
-    justifyContent: 'space-evenly' 
+    borderWidth: 1, 
+    width: 200, 
+    height: 40 
   },
 });
