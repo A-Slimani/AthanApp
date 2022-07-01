@@ -69,21 +69,19 @@ const styles = StyleSheet.create({
   },
   body: {
     flex: 4,
-    alignContent: 'center',
     backgroundColor: 'yellow',
   },
   leftText: {
     padding: 10,
-    alignContent: 'flex-end',
     backgroundColor: 'white'
   },
   rightText: {
     padding: 10,
-    alignContent: 'flex-end',
+    alignItems: 'stretch',
     backgroundColor: 'orange'
   },
   mainRow: {
     flexDirection: 'row',
-    justifyContent:'space-evenly' 
-  }
+    justifyContent: 'space-evenly' 
+  },
 });
