@@ -13,6 +13,19 @@ const Item = ({ time }: itemProps) => (
   </View>
 );
 
+const PrayerTime = ({ time }: itemProps) => {
+  return (
+    <View style={styles.rText}>
+      <View style={styles.rText}>
+        <Text>Fajr</Text>
+      </View>
+      <View style={styles.rText}>
+        <Text>{time}</Text>
+      </View>
+    </View>
+  )
+}
+
 export default function App() {
   const [data, setData] = useState<any>([]);
 
@@ -29,10 +42,7 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
       <View style={styles.body}>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Fajr</Text>
-          <Text style={styles.rightText}>{data.Fajr}</Text>
-        </View>
+        <PrayerTime time={data.Fajr} />
         <View style={styles.mainRow}>
           <Text style={styles.leftText}>Dhuhr</Text>
           <Text style={styles.rightText}>{data.Dhuhr}</Text>
@@ -79,8 +89,13 @@ const styles = StyleSheet.create({
   },
   mainRow: {
     flexDirection: 'row',
-    borderWidth: 1, 
-    width: 200, 
-    height: 40 
+    borderWidth: 1,
+    width: 200,
+    height: 40
   },
+  rText: {
+    flexDirection: 'row',
+    width: 50,
+    borderWidth: 1
+  }
 });
