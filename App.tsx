@@ -4,22 +4,17 @@ import React, { useEffect, useState } from 'react';
 import AthanService from './services/AthanService';
 
 type itemProps = {
+  name: string
   time: string
 }
 
-const Item = ({ time }: itemProps) => (
-  <View>
-    <Text>{time}</Text>
-  </View>
-);
-
-const PrayerTime = ({ time }: itemProps) => {
+const PrayerTime = ({ name, time }: itemProps) => {
   return (
-    <View style={styles.rText}>
-      <View style={styles.rText}>
-        <Text>Fajr</Text>
+    <View style={styles.component}>
+      <View style={styles.leftText}>
+        <Text>{name}</Text>
       </View>
-      <View style={styles.rText}>
+      <View style={styles.rightText}>
         <Text>{time}</Text>
       </View>
     </View>
@@ -42,26 +37,11 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
       <View style={styles.body}>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Fajr</Text>
-          <Text style={styles.rightText}>{data.Fajr}</Text>
-        </View>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Dhuhr</Text>
-          <Text style={styles.rightText}>{data.Dhuhr}</Text>
-        </View>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Asr</Text>
-          <Text style={styles.rightText}>{data.Asr}</Text>
-        </View>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Maghrib</Text>
-          <Text style={styles.rightText}>{data.Maghrib}</Text>
-        </View>
-        <View style={styles.mainRow}>
-          <Text style={styles.leftText}>Isha</Text>
-          <Text style={styles.rightText}>{data.Isha}</Text>
-        </View>
+        <PrayerTime name={'Fajr'} time={data.Fajr} />
+        <PrayerTime name={'Dhuhr'} time={data.Dhuhr} />
+        <PrayerTime name={'Asr'} time={data.Asr} />
+        <PrayerTime name={'Maghrib'} time={data.Maghrib} />
+        <PrayerTime name={'Isha'} time={data.Isha} />
       </View>
     </View>
   );
@@ -81,24 +61,24 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   body: {
-    flex: 4,
+    flex: 3,
     alignItems: 'center'
   },
-  leftText: {
+  component: {
+    flexDirection: 'row',
+    width: 250,
     padding: 10,
+    borderWidth: 1,
+  },
+  leftText: {
+    width: 110,
+    padding: 10,
+    alignItems: 'flex-start'
   },
   rightText: {
+    width: 110,
     padding: 10,
-  },
-  mainRow: {
-    flexDirection: 'row',
-    borderWidth: 1,
-    width: 200,
-    height: 40
-  },
-  rText: {
-    flexDirection: 'row',
-    width: 50,
-    borderWidth: 1
+    alignItems: 'flex-end'
   }
+
 });
