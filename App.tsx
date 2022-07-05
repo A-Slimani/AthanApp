@@ -42,7 +42,10 @@ export default function App() {
         <StatusBar style="auto" />
       </View>
       <View style={styles.body}>
-        <PrayerTime time={data.Fajr} />
+        <View style={styles.mainRow}>
+          <Text style={styles.leftText}>Fajr</Text>
+          <Text style={styles.rightText}>{data.Fajr}</Text>
+        </View>
         <View style={styles.mainRow}>
           <Text style={styles.leftText}>Dhuhr</Text>
           <Text style={styles.rightText}>{data.Dhuhr}</Text>
