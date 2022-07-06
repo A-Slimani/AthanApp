@@ -11,11 +11,11 @@ type itemProps = {
 const PrayerTime = ({ name, time }: itemProps) => {
   return (
     <View style={styles.component}>
-      <View style={styles.leftText}>
-        <Text>{name}</Text>
+      <View style={styles.leftSide}>
+        <Text style={styles.bodyText}>{name}</Text>
       </View>
-      <View style={styles.rightText}>
-        <Text>{time}</Text>
+      <View style={styles.rightSide}>
+        <Text style={styles.bodyText}>{time}</Text>
       </View>
     </View>
   )
@@ -36,7 +36,7 @@ export default function App() {
         <Text style={styles.titleText}>Athan App</Text>
         <StatusBar style="auto" />
       </View>
-      <View style={styles.body}>
+      <View style={styles.bodyAthanTimes}>
         <PrayerTime name={'Fajr'} time={data.Fajr} />
         <PrayerTime name={'Dhuhr'} time={data.Dhuhr} />
         <PrayerTime name={'Asr'} time={data.Asr} />
@@ -60,25 +60,27 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: 'bold',
   },
-  body: {
+  bodyAthanTimes: {
     flex: 3,
     alignItems: 'center'
   },
   component: {
     flexDirection: 'row',
-    width: 250,
     padding: 10,
-    borderWidth: 1,
   },
-  leftText: {
+  leftSide: {
     width: 110,
     padding: 10,
-    alignItems: 'flex-start'
+    alignItems: 'flex-start',
   },
-  rightText: {
+  rightSide: {
     width: 110,
     padding: 10,
-    alignItems: 'flex-end'
+    alignItems: 'flex-end',
+  },
+  bodyText: {
+    fontSize: 18,
+    fontWeight: '500' 
   }
 
 });
